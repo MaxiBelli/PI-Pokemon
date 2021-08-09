@@ -1,5 +1,8 @@
-const axios = require('axios');
-const {POKEMON_URL} = require('../constantes');
+const { Pokemon, Type } = require("../db");
+const axios = require("axios");
+const { URL, POKEMON } = require("../Constants/constants");
+const { v4: uuidv4 } = require('uuid');
+const db = require("../db");
 
 
 const getPokemonApi = async () => {
@@ -34,6 +37,28 @@ const getPokemonApi = async () => {
     }
 };
 
+const getPokemonDatabase = async () => {
+    return await Pokemon.findAll({
+        include: {
+            model: Type,
+            attributes: ['name'], //traer nombre
+            through: {  //mediante este atributo
+                attributes: [],
+            },
+        }
+    })
+};
 
 
-module.exports = getPokemonApi
+const getAllPokemon = async () => {
+    const apiData = await getPokemonApi();
+    const databaseData = await getPokemonDatabase();
+    let fullData = apiData.concat(databaseData);
+    return fullData;
+}
+
+module.exports = {
+    getPokemonApi,
+    getPokemonDatabase,
+    getAllPokemon,
+  };
