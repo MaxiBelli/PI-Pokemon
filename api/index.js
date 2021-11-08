@@ -18,17 +18,11 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn,Type } = require('./src/db.js');
-const axios = require('axios');
-const {POKEMON_TYPE_URL} = require('../api/src/constantes');
+const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
-    axios.get(POKEMON_TYPE_URL).then(response => {
-      return response.data.results.forEach(type => Type.create({name:type.name}));
-      console.log('Types in DB')
-    });
   });
 });
