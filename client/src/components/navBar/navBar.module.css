@@ -1,0 +1,27 @@
+.Nav {
+    width:100%;
+    height: auto;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-direction: row;
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
+}
+
+.Title {
+    font-family: Pokemon;
+    font-size: 65px;
+    color: white;
+    letter-spacing: 0;
+    transition: transform .2s;
+    text-shadow: -3px -3px 3px black, 3px -3px 3px #6495ED, -3px 3px 3px #6495ED, #6495ED 3px 3px 3px ;
+}
+
+.Title:hover {
+    transform: scale(1.25)
+}
+@font-face {
+    font-family: Pokemon;
+    src: url("./PokeSolid.ttf");
+    -webkit-text-stroke: 10px black;
+}

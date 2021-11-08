@@ -1,0 +1,5 @@
+.footer {
+    width: 100%;
+    height: auto;
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
+}

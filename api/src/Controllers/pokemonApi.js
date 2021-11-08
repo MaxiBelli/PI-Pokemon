@@ -1,8 +1,5 @@
-const { Pokemon, Type } = require("../db");
-const axios = require("axios");
-const { URL, POKEMON } = require("../Constants/constants");
-const { v4: uuidv4 } = require('uuid');
-const db = require("../db");
+const axios = require('axios');
+const {POKEMON_URL} = require('../constantes');
 
 
 const getPokemonApi = async () => {
@@ -25,10 +22,12 @@ const getPokemonApi = async () => {
                     speed: pokemon.stats[5].base_stat,
                     height: pokemon.height,
                     weight: pokemon.weight,
-                    sprite: pokemon.sprites.other.dream_world.front_defult,
-                    types: pokemon.types.map(el => el.type.name)
+                    sprite: pokemon.sprites.other.dream_world.front_default,
+                    types: pokemon.types.length > 1 ? [{name :pokemon.types[0].type.name}, {name :pokemon.types[1].type.name}] : [{name :pokemon.types[0].type.name}]
                 })
             })
+            
+            
             return pokemons;
         })
         return pokeDex;
@@ -37,28 +36,5 @@ const getPokemonApi = async () => {
     }
 };
 
-const getPokemonDatabase = async () => {
-    return await Pokemon.findAll({
-        include: {
-            model: Type,
-            attributes: ['name'], //traer nombre
-            through: {  //mediante este atributo
-                attributes: [],
-            },
-        }
-    })
-};
 
-
-const getAllPokemon = async () => {
-    const apiData = await getPokemonApi();
-    const databaseData = await getPokemonDatabase();
-    let fullData = apiData.concat(databaseData);
-    return fullData;
-}
-
-module.exports = {
-    getPokemonApi,
-    getPokemonDatabase,
-    getAllPokemon,
-  };
+module.exports = getPokemonApi

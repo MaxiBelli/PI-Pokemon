@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+.group 			  { 
+    position:relative; 
+    margin-bottom:45px; 
+  }
+
+form{
+    padding: auto;
+    color: black;
+    max-width: 400px;
+    background-color: #17202A;
+    opacity: 0.9;
+    background: white;
+    border:none;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------- */
+form input:focus ~ label, form input:valid ~ label 		{
+    top:-20px;
+    font-size:14px;
+    color:#F5B041;
+  }
+
+form button {
+	display: block;
+  font-family: "Roboto", sans-serif;
+}
+
+.bar 	{ position:relative; display:block; width:300px; border:white solid; } /* este es el span que aparece debajo del nombre */
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+form input:focus ~ .bar:before, form input:focus ~ .bar:after {
+    width:50%;
+  }
+
+.group 			  { 
+    position:relative; 
+    margin-bottom:45px; 
+  }
+ form input {
+    border:solid yellow 5px;
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:200px;
+    border:none;
+    /* border-radius: 10px; */
+    border-bottom:1px solid #757575;
+  }
+ form input:focus { outline:none; }
+
+
+form label 				 {
+    color: black; 
+    font-size:18px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:10px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+
+ form input:focus ~ form label, form input:valid ~ form label 		{
+    top:-20px;
+    font-size:14px;
+    color:#5264AE;
+  }
+  
+  .bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+form input:focus ~ .bar:before, form input:focus ~ .bar:after {
+    width:50%;
+  }
+
+  .highlight {
+    position:absolute;
+    height:60%; 
+    width:100px; 
+    top:25%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* active state */
+ form input:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+
+.selectCss {
+    display: block;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.3;
+    padding: .4em 1.4em .3em .8em;
+    width: 400px;
+    max-width: 100%; 
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+    border-radius: .3em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+   .selectCss::-ms-expand {
+    display: none;
+   }
+   .selectCss:hover {
+    border-color: #888;
+   }
+   .selectCss:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222; 
+    outline: none;
+   }
+   .selectCss option {
+    font-weight:normal;
+   }
+
+
+
+.universal {
+    height: 100%;
+    width: 100%;
+    /* border: 5px yellow solid; */
+    /* background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%); */
+    background-image: url('./laboratorioPokemon.jpg');
+
+}
+
+.form {
+    height: auto;
+    margin:auto;
+    width:90%;
+    max-width: 500px;
+    padding:4.5em 3em;
+    border-radius:10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    height: 70%;
+    font-family:'Roboto';
+    margin:auto;   
+}
+
+.nav {
+    height: auto;
+}
+
+.footer {
+    height: auto;
+}
+
+.pokeCreate {
+    height: 100%;
+    
+}
+
+.trans {
+    background-color: transparent;
+    color:black;
+    position:absolute;
+    text-align: center;
+}
+
+.containerCreate {
+    width: 100%;
+    height: 100%;
+    border: solid black 5px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonForm {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+    padding-top: 30px;
+    text-decoration: none;
+}
+
+.type {
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font: 'Roboto';
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mask {
+  background: rgba(5, 5, 5, 0.75);
+}
+
+.error {
+  color:red;
+  display: flex;
+  justify-content: flex-start;
+}
