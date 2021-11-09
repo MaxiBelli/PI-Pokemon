@@ -60,14 +60,14 @@ export function getNamePokemons(name) {
   };
 }
 
-export function filterPokemonsByType(payload) {
+export function filterByType(payload) {
   return {
     type: "FILTER_BY_TYPE",
     payload,
   };
 }
 
-export function filterPokemonsByOrigin(payload) {
+export function filterByOrigin(payload) {
   return {
     type: "FILTER_BY_ORIGIN",
     payload,

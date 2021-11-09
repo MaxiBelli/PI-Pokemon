@@ -10,10 +10,10 @@ const NavBar = () => {
         <div className={style.Nav}>
             <Link to='/pokemons'>
                 <button className={style.create}>
-                        Crear Pokemon
+                        Create Pokemon
                 </button>
             </Link>
-            <h1 className={style.Title}>App Pokedex</h1>
+            <h1 className={style.Title}>Pokemon App</h1>
             <SearchBar/>
         </div>
     )
