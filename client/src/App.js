@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import landingPage from './components/landing page/landingPage';
 import Home from './components/home/home';
-import CreatePokemon from '../src/components/createPokemon/createPokemon'
+import CreatePokemon from './components/createPokemon/CreatePokemon'
 import PokemonDetail from './components/pokemonDetail/pokemonDetail';
 import NavBar from './components/navBar/navBar';
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import getPokemons from '../../actions/getPokemons';
-import style from './cleanFilters.module.css'
+import getPokemons from "../../redux/actions";
 
 
-const CleanFilter = () => {
+
+export default function ReloadPokemons(){
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -14,9 +14,8 @@ const CleanFilter = () => {
 
     return(
         <div>
-            <button className={style.Filter} onClick={e=>{handleSubmit(e)}}>Limpiar</button>
+            <button onClick={e=>{handleSubmit(e)}}>Pokemons</button>
         </div>
     )
 }
 
-export default CleanFilter;

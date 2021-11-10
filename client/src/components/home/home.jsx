@@ -15,7 +15,7 @@ import NavBar from '../navBar/navBar';
 import Loading from '../loading/loading';
 import Footer from '../footer/footer';
 
-const Home = () => {
+export default function Home (){
 
     const dispatch = useDispatch();
     const allPokemons = useSelector(state => state.pokemons)
@@ -73,4 +73,3 @@ const Home = () => {
 
 
 
-export default Home;

@@ -1,14 +1,14 @@
-import { POST_POKEMON } from "../actions/createPokemon";
-import { GET_BY_ID } from "../actions/getById";
-import { GET_POKEMON } from "../actions/getPokemons";
-import { GET_TYPES } from "../actions/getTypes";
-import { SET_LOADING } from "../actions/setLoading";
-import { RESET_POKEMON } from "../actions/resetPokemon";
-import { GET_BY_NAME } from "../actions/getPokemonByName";
-import { FILTERED_BY_TYPES } from "../actions/filteredByTypes";
-import { FILTERED_BY_ORIGIN } from "../actions/filteredByOrigin";
-import { FILTERED_BY_NAME } from "../actions/filteredByName";
-import { FILTERED_BY_POWER } from "../actions/filterByPower";
+// import { POST_POKEMON } from "../actions/createPokemon";
+// import { GET_BY_ID } from "../actions/getById";
+// import { GET_POKEMON } from "../actions/getPokemons";
+// import { GET_TYPES } from "../actions/getTypes";
+// import { SET_LOADING } from "../actions/setLoading";
+// import { RESET_POKEMON } from "../actions/resetPokemon";
+// import { GET_BY_NAME } from "../actions/getPokemonByName";
+// import { FILTERED_BY_TYPES } from "../actions/filteredByTypes";
+// import { FILTERED_BY_ORIGIN } from "../actions/filteredByOrigin";
+// import { FILTERED_BY_NAME } from "../actions/filteredByName";
+// import { FILTERED_BY_POWER } from "../actions/filterByPower";
 
 // const initialState = {
 //     pokemons: [],

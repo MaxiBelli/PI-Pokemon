@@ -1,63 +1,57 @@
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import getPokemonById from '../../actions/getById';
-import { SPRITE_CREATE } from '../../constantes';
-import Loading from '../loading/loading';
-import style from './pokemonDetail.module.css'
-import resetPokemon from '../../actions/resetPokemon';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getPokemonDetail } from "../../redux/actions";
+import style from "./pokemonDetail.module.css";
 
-const PokemonDetail = (props) => {
 
-    const dispatch = useDispatch();
-    
-    const pokeDetail = useSelector(state => state.pokemonDetail)
-    const stateLoading = useSelector(state => state.loading) //cada vez que cambia el estado se renderiza el componente
-    console.log('POKEDETAIL',stateLoading)
-    
-    useEffect(() => {
-        dispatch(getPokemonById(props.match.params.id))
-    },[])
+export default function PokemonDetail(props){
+  const dispatch = useDispatch();
+  const { id } = props.match.params;
+  const pokemonDetail = useSelector((state) => state.pokemonDetail);
+  
 
-    useEffect(() => {
-        return () => {
-            dispatch(resetPokemon())
-        }
-    }, [])
-    
+  useEffect(() => {
+    dispatch(getPokemonDetail(id));
+  }, []);
 
-    return(
-        <div className={style.universal}>
-            {
-               (stateLoading) ?
-               <Loading className={style.loading}/>
-               :
-               
-               <div className={style.detail}key={pokeDetail.id}>
-                   <img className={style.image} src={pokeDetail[0]?.sprite ? pokeDetail[0].sprite : SPRITE_CREATE}/>
-                   <h1>{pokeDetail[0]?.name}</h1>
-                   <h4>TIPO: {pokeDetail[0]?.types.map(type => type.name + (' '))}</h4>
-                   <div>
-                       <h5>HP: {pokeDetail[0]?.hp}</h5>
-                       <h5>ATTACK: {pokeDetail[0]?.attack}</h5>
-                       <h5>DEFENSE: {pokeDetail[0]?.defense}</h5>
-                       <h5>SPEED: {pokeDetail[0]?.speed}</h5>
-                    <div>
-                        <h5>HEIGHT: {pokeDetail[0]?.height}</h5>
-                        <h5>WEIGHT: {pokeDetail[0]?.weight}</h5>
-                    </div>
-                   </div>
-                   
-                   <Link to='/home'>
-                        <button className={style.buttonDetail}>Volver</button>
-                    </Link>
-                        {/* <h5>ID: {pokeDetail.id}</h5> */}
-               </div> 
+ 
+
+  return (
+    <div className={style.universal}>
+     {pokemonDetail && pokemonDetail.id !== id ? (
+        <p>LOADING...</p>
+      ) : (
+        <div className={style.detail} key={pokemonDetail.id}>
+          <img
+            className={style.image}
+            src={
+              pokemonDetail[0]?.sprite ? pokemonDetail[0].sprite : null
             }
-            
+          />
+          <h1>{pokemonDetail[0]?.name}</h1>
+          <h4>
+            TIPO: {pokemonDetail[0]?.types.map((type) => type.name + " ")}
+          </h4>
+          <div>
+            <h5>HP: {pokemonDetail[0]?.hp}</h5>
+            <h5>ATTACK: {pokemonDetail[0]?.attack}</h5>
+            <h5>DEFENSE: {pokemonDetail[0]?.defense}</h5>
+            <h5>SPEED: {pokemonDetail[0]?.speed}</h5>
+            <div>
+              <h5>HEIGHT: {pokemonDetail[0]?.height}</h5>
+              <h5>WEIGHT: {pokemonDetail[0]?.weight}</h5>
+            </div>
+          </div>
+
+          <Link to="/home">
+            <button className={style.buttonDetail}>Volver</button>
+          </Link>
+          {/* <h5>ID: {pokemonDetail.id}</h5> */}
         </div>
-)
-}
+      )}
+    </div>
+  );
+};
 
 
-export default PokemonDetail;

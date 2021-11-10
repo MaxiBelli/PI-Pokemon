@@ -4,7 +4,7 @@ import filteredByTypes from '../../actions/filteredByTypes';
 import style from './byTypes.module.css'
 
 
-const FilterByTypes = ({allTypes}) => {
+export default function FilterByTypes({allTypes}){
     const dispatch = useDispatch();
 
     const handleFilterByTypes = (e) => {
@@ -13,7 +13,7 @@ const FilterByTypes = ({allTypes}) => {
 
     return(
         <div>
-            <label>Ordenar Pokemons por tipo</label>
+            <label>Order By Type:</label>
             <select className={style.selectCss} onChange={e => handleFilterByTypes(e)}>
                 <option value='all'>Todos</option>
                 {
@@ -29,4 +29,3 @@ const FilterByTypes = ({allTypes}) => {
     )
 }
 
-export default FilterByTypes;

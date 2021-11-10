@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import createPokemon from "../../actions/createPokemon";
-import getTypes from "../../actions/getTypes";
-import style from "./createPokemon.module.css";
-import NavBar from "../navBar/navBar";
+import { getTypes, createPokemon } from "../../redux/actions";
+import NavBar from "../navBar/NavBar";
 import Footer from "../footer/footer";
 
-const CreatePokemon = () => {
+export default function CreatePokemon() {
   const dispatch = useDispatch();
   const history = useHistory();
   const getAllTypes = useSelector((state) => state.types);
@@ -85,11 +83,11 @@ const CreatePokemon = () => {
     } */
 
   return (
-    <div className={style.universal}>
-      <NavBar className={style.nav} />
-      <div className={style.mask}>
-        <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
-          <div className={style.group}>
+    <div>
+      <NavBar />
+      <div>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div>
             <input
               required
               value={input.name}
@@ -98,11 +96,10 @@ const CreatePokemon = () => {
               onChange={(e) => handleChange(e)}
             />
             {/* {errors.name && (<p className={style.error}>{errors.name}</p>)} */}
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Nombre:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -112,11 +109,10 @@ const CreatePokemon = () => {
               onChange={(e) => handleChange(e)}
             />
             {/* {errors.hp && (<p className={style.error}>{errors.hp}</p>)} */}
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Salud:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -125,11 +121,10 @@ const CreatePokemon = () => {
               name="attack"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Ataque:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -138,11 +133,10 @@ const CreatePokemon = () => {
               name="defense"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Defensa:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -151,11 +145,10 @@ const CreatePokemon = () => {
               name="speed"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Velocidad:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -164,11 +157,10 @@ const CreatePokemon = () => {
               name="height"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Altura:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="number"
@@ -177,27 +169,23 @@ const CreatePokemon = () => {
               name="weight"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+            <span></span>
+            <span></span>
             <label>Peso:</label>
           </div>
-          <div className={style.group}>
+          <div>
             <input
               required
               type="text"
               name="sprite"
               onChange={(e) => handleChange(e)}
             />
-            <span className={style.highlight}></span>
-            <span className={style.bar}></span>
+
             <label>Imagen:</label>
           </div>
           <div>
-            <p className={style.p}>Tipo:</p>
-            <select
-              className={style.selectCss}
-              onChange={(e) => handleChangeType(e)}
-            >
+            <p>Type:</p>
+            <select onChange={(e) => handleChangeType(e)}>
               {getAllTypes?.map((type, i) => (
                 <option key={i} value={type.name}>
                   {type.name}
@@ -206,22 +194,20 @@ const CreatePokemon = () => {
             </select>
           </div>
           {input.types.map((el, i) => (
-            <div className={style.map} key={i}>
+            <div key={i}>
               <h3>{el}</h3>
               <button onClick={() => handleDelete(el)}>X</button>
             </div>
           ))}
-          <div className={style.buttonForm}>
-            <button type="submit">Crear personaje</button>
+          <div>
+            <button type="submit">CreaTe Pokemon</button>
           </div>
-          <Link to="/home" className={style.buttonForm}>
-            <button type="submit">Volver a Pokedex</button>
+          <Link to="/home">
+            <button type="submit">Back</button>
           </Link>
         </form>
       </div>
-      <Footer className={style.footer} />
+      <Footer />
     </div>
   );
-};
-
-export default CreatePokemon;
+}

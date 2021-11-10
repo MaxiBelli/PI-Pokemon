@@ -20,8 +20,8 @@
 .Title:hover {
     transform: scale(1.25)
 }
-@font-face {
+/* @font-face {
     font-family: Pokemon;
     src: url("./PokeSolid.ttf");
     -webkit-text-stroke: 10px black;
-}
+} */
