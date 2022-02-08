@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import filteredByTypes from '../../actions/filteredByTypes';
-import style from './byTypes.module.css'
+import { filterPokemonsByType } from "../../redux/actions";
+
 
 
 export default function FilterByTypes({allTypes}){
     const dispatch = useDispatch();
 
     const handleFilterByTypes = (e) => {
-        dispatch(filteredByTypes(e.target.value))
+        dispatch(filterPokemonsByType(e.target.value))
     }
 
     return(
