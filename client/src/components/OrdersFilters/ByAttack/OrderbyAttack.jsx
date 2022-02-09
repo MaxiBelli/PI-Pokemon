@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import orderByAttack from "../../redux/actions";
-import style from "./byPower.module.css";
+import orderByAttack from "../../../redux/actions";
 
 export default function OrderByAttack({ setCurrentPage, setOrder }) {
   const dispatch = useDispatch();
@@ -17,7 +16,6 @@ export default function OrderByAttack({ setCurrentPage, setOrder }) {
     <div>
       <label>Order By Attack:</label>
       <select
-        className={style.selectCss}
         onChange={(e) => {
           handleOrderByAttack(e);
         }}

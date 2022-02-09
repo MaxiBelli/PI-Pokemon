@@ -4,20 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getPokemons,
   getTypes,
-  filterPokemonsByType,
+  filterByType,
   filterByOrigin,
   orderByName,
   orderByAttack,
 } from "../../redux/actions";
 
-import PageComponent from "../paged/paged";
-import style from "./home.module.css";
-import RenderPokemons from "../../render/renderPokemon";
-
-import CleanFilter from "../../filter/cleanFilters/cleanFilters";
-import NavBar from "../navBar/navBar";
-import Loading from "../loading/loading";
-import Footer from "../footer/footer";
+import Paged from "../Paged/Paged";
+import OrderByName from "../OrdersFilters/ByName/OrderByName";
+import OrderByAttack from "../OrdersFilters/ByAttack/OrderbyAttack";
+import FilterByTypes from "../OrdersFilters/ByTypes/FilterByTypes";
+import FilterByOrigin from "../OrdersFilters/ByOrigin/FilterByOrigin";
+import CleanOrdersFilters from "../OrdersFilters/CleanOrdersFilters";
+import RenderPokemons from "../../Render/RenderPokemon";
+import NavBar from "../NavBar/NavBar";
+import Loading from "../Loading/Loading";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -44,39 +46,38 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <div className={style.universal}>
+    <div>
       {loading ? (
-        <Loading className={style.loading} />
+        <Loading />
       ) : (
-        <div className={style.container}>
-          <NavBar className={style.nav} />
-          <div className={style.filter}>
+        <div>
+          <NavBar />
+          <div>
             <OrderByName setCurrentPage={setCurrentPage} setOrder={setOrder} />
-            <FilterByPower
+            <OrderByAttack
               setCurrentPage={setCurrentPage}
               setOrder={setOrder}
             />
-            <filterPokemonsByType allTypes={allTypes} />
-            <filterByOrigin />
-            <CleanFilter />
+            <FilterByTypes allTypes={allTypes} />
+            <FilterByOrigin />
+            <CleanOrdersFilters />
           </div>
           <div>
-            <div className={style.page}>
-              <PageComponent
-                className={style.pagination}
+            <div>
+              <Paged
                 charactersPage={charactersPage}
                 allPokemons={allPokemons.length}
                 page={page}
               />
             </div>
           </div>
-          <div className={style.render}>
+          <div>
             <RenderPokemons
               currentCharacters={currentCharacters}
               allPokemons={allPokemons.length}
             />
           </div>
-          <div className={style.footer}>
+          <div>
             <Footer />
           </div>
         </div>

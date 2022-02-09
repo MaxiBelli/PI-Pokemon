@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import orderByName from "../../redux/actions";
-import style from "./ascDesc.module.css";
+import orderByName from "../../../redux/actions";
 
 export default function OrderByName({ setCurrentPage, setOrder }) {
   const dispatch = useDispatch();
@@ -16,10 +15,7 @@ export default function OrderByName({ setCurrentPage, setOrder }) {
   return (
     <div>
       <label>Order By Name:</label>
-      <select
-        className={style.selectCss}
-        onChange={(e) => handleOrderByName(e)}
-      >
+      <select onChange={(e) => handleOrderByName(e)}>
         <option value="asc">Ascendent</option>
         <option value="desc">Descendent</option>
       </select>

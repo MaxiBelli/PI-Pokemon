@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import filterByOrigin from "../../redux/actions"
-import style from "./byOrigin.module.css";
+import filterByOrigin from "../../../redux/actions";
 
 export default function FilterByOrigin() {
   const dispatch = useDispatch();
@@ -13,10 +12,7 @@ export default function FilterByOrigin() {
   return (
     <div>
       <label>Filtrar por origen</label>
-      <select
-        className={style.selectCss}
-        onChange={(e) => handleFilteredByOrigin(e)}
-      >
+      <select onChange={(e) => handleFilteredByOrigin(e)}>
         <option value="all">All</option>
         <option value="created">Creates</option>
         <option value="api">Naturals</option>

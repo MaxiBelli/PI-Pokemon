@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function CardPokemon({ name, image, type }) {
   const firstLetter = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1);

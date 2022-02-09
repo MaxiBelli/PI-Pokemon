@@ -1,7 +1,7 @@
 import React from "react";
-import style from "./paged.module.css";
+// import style from "./paged.module.css";
 
-export default function Pagination({
+export default function Paged({
   charactersPage,
   allPokemons,
   pagination,
@@ -14,8 +14,8 @@ export default function Pagination({
   }
 
   return (
-    <div className={style.page}>
-      <div className={style.page}>
+    <div>
+      <div>
         {pageNumbers &&
           pageNumbers.map((number) => (
             <button class="number red" key={number}>

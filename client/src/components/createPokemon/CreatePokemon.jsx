@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getTypes, createPokemon } from "../../redux/actions";
-import NavBar from "../navBar/NavBar";
-
+import NavBar from "../NavBar/NavBar";
 
 export default function CreatePokemon() {
   const dispatch = useDispatch();
@@ -207,7 +206,6 @@ export default function CreatePokemon() {
           </Link>
         </form>
       </div>
-      
     </div>
   );
 }

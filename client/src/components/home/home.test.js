@@ -3,9 +3,9 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Home from './home';
-import Nav from '../navBar/navBar';
+import Nav from '../NavBar/navBar';
 import Footer from '../footer/footer';
-import Loading from '../loading/loading';
+import Loading from '../Loading/loading';
 
 configure({adapter: new Adapter()});
 
